@@ -7,12 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        body {
+       body {
             font-family: 'Poppins', sans-serif;
-            /* Using a romantic gradient as a fallback for the image */
-            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
-            background-attachment: fixed;
+            /* Using YOUR beautiful painting as the background! */
+            background-image: url('mp.jpeg');
             background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            /* Fallback color */
+            background-color: #fff0f3; 
             margin: 0;
             overflow-x: hidden;
             display: flex;
@@ -129,13 +133,17 @@
     </div>
 
     <script>
-        const message = `Happiest Birthday to the prettiest of them all and my reason to stay alive.
+        const message = `Happiest Birthday to the prettiest of them all and my reason to stay alive.✨
 
-Every moment with you feels like a beautiful dream come true; I miss my fairytale life with you. You are my greatest support, my strength, and my whole world.
+Every moment with you feels like a beautiful dream come true; I miss my fairytale life with you. You are my greatest support, my strength, and my whole world 🌍.
 
-I know I am not the kind of person you wanted me to be, and I am apologizing for it—and always will. I am sorry I have been such a difficult person lately. It’s not okay for me; I die a little every time I speak rudely to you. It hurts me even more with the silence I have created between us.
+I know I am not the kind of person you wanted me to be, and I am apologizing for it and always will. 
+I am sorry I have been such a difficult person lately. It’s not okay for me, I die a little every time I speak rudely to you. 
+It hurts me even more with the silence I have created between us.
 
-Life is hard, but it’s never hard with you around. I am never in a rush when I am with you, because you are my calm. I have been crying a lot lately, angry at myself for speaking to you the way I did. Just the thought of you getting away from me kills me.
+Life is hard, but it’s never hard with you around. I am never in a rush when I am with you, because you are my calm. I have been crying a lot lately, angry at myself for speaking to you the way I did. 
+
+Just the thought of you getting away from me kills me and gives me chills.
 
 I don't know how the Good Lord was so merciful to me that He brought you into my life. I know I’m not the perfect guy for you, but I will always love you more than anything I ever thought possible.
 
@@ -147,7 +155,7 @@ You matter to me so much that you cannot even imagine. If love is eternal, even 
 
 My heart stopped searching the moment it found you. You make me complete. Sometimes, things have to go very wrong before they can finally become right.
 
-I am maturing by damage, not just by age.`;
+I am maturing by damage, not just by age.
 
         // Check for persistent login
         window.onload = function() {
