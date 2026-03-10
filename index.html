@@ -9,7 +9,10 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fff0f3;
+            /* Using a romantic gradient as a fallback for the image */
+            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+            background-attachment: fixed;
+            background-size: cover;
             margin: 0;
             overflow-x: hidden;
             display: flex;
@@ -19,17 +22,19 @@
         }
 
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.92); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Modern blur effect */
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(255, 75, 110, 0.2);
             text-align: center;
             max-width: 600px;
-            width: 90%;
+            width: 85%;
             z-index: 10;
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         h1 { color: #ff4b6e; font-family: 'Dancing Script', cursive; font-size: 2.8rem; margin-top: 0; }
@@ -43,6 +48,7 @@
             text-align: center;
             font-size: 16px;
             outline: none;
+            background: white;
         }
 
         .btn {
@@ -55,6 +61,7 @@
             font-weight: bold;
             transition: 0.3s;
             font-size: 16px;
+            box-shadow: 0 4px 15px rgba(255, 75, 110, 0.3);
         }
 
         .btn:hover { transform: scale(1.05); background-color: #ff335c; }
@@ -90,10 +97,15 @@
             color: #ff4b6e;
             user-select: none;
             pointer-events: none;
+            z-index: 1;
             animation: fall linear forwards;
         }
 
         @keyframes fall { to { transform: translateY(110vh); } }
+
+        /* Custom Scrollbar for the card */
+        .container::-webkit-scrollbar { width: 6px; }
+        .container::-webkit-scrollbar-thumb { background: #ffccd5; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -110,7 +122,7 @@
     <div class="container" id="message-area">
         <h1 style="text-align: center;">Happy Birthday, My Love</h1>
         <div id="typewriter"></div>
-        <p id="signature" style="text-align: right; font-family: 'Dancing Script'; font-size: 26px; color: #ff4b6e; display:none;">
+        <p id="signature" style="text-align: right; font-family: 'Dancing Script'; font-size: 28px; color: #ff4b6e; display:none;">
             Forever yours, Mukund
         </p>
         <button id="surprise-btn" class="btn" onclick="celebrate()">Click for a Birthday Surprise! 🎂</button>
@@ -137,16 +149,28 @@ My heart stopped searching the moment it found you. You make me complete. Someti
 
 I am maturing by damage, not just by age.`;
 
+        // Check for persistent login
+        window.onload = function() {
+            if (localStorage.getItem("isLoggedIn") === "true") {
+                unlock();
+            }
+        }
+
         function checkPassword() {
             const input = document.getElementById("passInput").value;
             if (input === "Mybaby") {
-                document.getElementById("login-box").style.display = "none";
-                document.getElementById("message-area").style.display = "block";
-                startHeartRain();
-                typeWriterEffect();
+                localStorage.setItem("isLoggedIn", "true");
+                unlock();
             } else {
                 alert("That's not it... try again ❤️");
             }
+        }
+
+        function unlock() {
+            document.getElementById("login-box").style.display = "none";
+            document.getElementById("message-area").style.display = "block";
+            startHeartRain();
+            typeWriterEffect();
         }
 
         let i = 0;
@@ -156,6 +180,7 @@ I am maturing by damage, not just by age.`;
                 i++;
                 setTimeout(typeWriterEffect, 45); 
                 
+                // Auto-scroll logic
                 const container = document.getElementById("message-area");
                 container.scrollTop = container.scrollHeight;
             } else {
@@ -166,8 +191,8 @@ I am maturing by damage, not just by age.`;
 
         function celebrate() {
             confetti({
-                particleCount: 150,
-                spread: 70,
+                particleCount: 200,
+                spread: 90,
                 origin: { y: 0.6 },
                 colors: ['#ff4b6e', '#ffccd5', '#ffffff', '#ff9a9e']
             });
@@ -179,13 +204,13 @@ I am maturing by damage, not just by age.`;
                 heart.classList.add('falling-heart');
                 heart.innerHTML = '❤';
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-                const duration = Math.random() * 3 + 2;
+                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                const duration = Math.random() * 3 + 4;
                 heart.style.animationDuration = duration + 's';
-                heart.style.opacity = Math.random();
+                heart.style.opacity = Math.random() * 0.6 + 0.4;
                 document.body.appendChild(heart);
                 setTimeout(() => { heart.remove(); }, duration * 1000);
-            }, 300);
+            }, 400);
         }
     </script>
 </body>
