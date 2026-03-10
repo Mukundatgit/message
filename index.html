@@ -7,15 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-       body {
+        body {
             font-family: 'Poppins', sans-serif;
-            /* Using YOUR beautiful painting as the background! */
             background-image: url('mp.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
-            /* Fallback color */
             background-color: #fff0f3; 
             margin: 0;
             overflow-x: hidden;
@@ -26,11 +24,11 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.92); /* Semi-transparent white */
-            backdrop-filter: blur(10px); /* Modern blur effect */
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(8px); 
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 600px;
             width: 85%;
@@ -38,7 +36,7 @@
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         h1 { color: #ff4b6e; font-family: 'Dancing Script', cursive; font-size: 2.8rem; margin-top: 0; }
@@ -52,7 +50,7 @@
             text-align: center;
             font-size: 16px;
             outline: none;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .btn {
@@ -72,12 +70,7 @@
 
         #message-area { display: none; text-align: left; }
 
-        #typewriter {
-            font-size: 17px;
-            line-height: 1.8;
-            color: #444;
-            white-space: pre-wrap;
-        }
+        #typewriter { font-size: 16px; line-height: 1.8; color: #333; white-space: pre-wrap; font-weight: 400; }
 
         .heart-static { color: #ff4b6e; font-size: 50px; animation: pulse 1.5s infinite; }
 
@@ -88,11 +81,7 @@
             animation: fadeIn 2s;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .falling-heart {
@@ -107,7 +96,6 @@
 
         @keyframes fall { to { transform: translateY(110vh); } }
 
-        /* Custom Scrollbar for the card */
         .container::-webkit-scrollbar { width: 6px; }
         .container::-webkit-scrollbar-thumb { background: #ffccd5; border-radius: 10px; }
     </style>
@@ -124,40 +112,49 @@
     </div>
 
     <div class="container" id="message-area">
-        <h1 style="text-align: center;">Happy Birthday, My Love</h1>
+        <h1 style="text-align: center;">Happy Birthday, My Love 🎂</h1>
         <div id="typewriter"></div>
         <p id="signature" style="text-align: right; font-family: 'Dancing Script'; font-size: 28px; color: #ff4b6e; display:none;">
-            Forever yours, Mukund
+            Forever yours, Mukund ❤️
         </p>
-        <button id="surprise-btn" class="btn" onclick="celebrate()">Click for a Birthday Surprise! 🎂</button>
+        <button id="surprise-btn" class="btn" onclick="celebrate()">Click for a Birthday Surprise! 🎉</button>
     </div>
 
     <script>
-        const message = `Happiest Birthday to the prettiest of them all and my reason to stay alive.✨
+        // Your exact original message with a few added emojis
+        const message = `Happiest Birthday to the prettiest of em all and my reason to stay live. ✨
 
-Every moment with you feels like a beautiful dream come true; I miss my fairytale life with you. You are my greatest support, my strength, and my whole world 🌍.
+Every moment with you feels like a beautiful dream come true i miss my Faily tail life with you. 
+You are my greatest support, my strength and my whole world. 🌍
 
-I know I am not the kind of person you wanted me to be, and I am apologizing for it and always will. 
-I am sorry I have been such a difficult person lately. It’s not okay for me, I die a little every time I speak rudely to you. 
-It hurts me even more with the silence I have created between us.
+I know i am not the kind of person you wanted me to be and i am apologising for it and always will in life and i am sorry i have been an asshole all this while but let me tell you something  
+its not okay for me i die everytime i speak rudely with you it hurts me even more with the silence i have created for us, life is hard but life is not hard with you around me i am not in rush when i am with you because you're my calm. 🌊
 
-Life is hard, but it’s never hard with you around. I am never in a rush when I am with you, because you are my calm. I have been crying a lot lately, angry at myself for speaking to you the way I did. 
+i have been crying alot lately angry on myself why i spoke to you the way i did i know its hard for you as well to bare a person like me but i am extremlly vulnerable let me tell you this for you just a thought of you getting away from me kills me.
 
-Just the thought of you getting away from me kills me and gives me chills.
+idk how good lord was soo mercyful on me that he brought you in my life i know i am not a perfect guy for you but i know this i will and always will  love you more, more that anything i every thought of ❤️
 
-I don't know how the Good Lord was so merciful to me that He brought you into my life. I know I’m not the perfect guy for you, but I will always love you more than anything I ever thought possible.
+I just want to feel you hold you and hug you soo soo much make your hair and love you all the time i miss being me for you its been almost 3 years without you my love i know things are not good at the moment and you are really different from anyone else i've met  its just not possible for me to give up on us i want us and without your trust its next to impossible consider this my aplogy and its about rebuilding a connection i just do not want to say i am sorry i want to prove it to you because your mean the world to me. 🌎
 
-I miss being 'me' for you. It has been almost three years. I know things are not good at the moment, but you are truly different from anyone else I’ve ever met. It’s not possible for me to give up on 'us.' I want to prove it to you, because you mean the world to me.
+I totally understand how that hurt you  and i am here today to own it i should have not done that or speak to you the way i did but you need to understand me as well i am not at all defending my self i took the blame then i am still taking the blame on me because its you abd if you i can take anything and everything for you just as i will do anythign and everything for you i am here not to argue with you but to be standing with you letting you know i care for you like no one else dose now will do 🤝
 
-I totally understand how much I hurt you, and I am here today to own it. I should not have spoken to you the way I did. I can take anything for you, just as I will do anything for you. I want to become a better version of myself for you.
+i want to undestand more it needs courage to speak up when you are hurt and i know its not easy to put out your heart like that 
+i have reflected on this and have realised i need to do better when it comes to you i am not apologiesing to end this converstaion i am dointg it so that i become a better version of my self for you because like you said you dont deserve it and also if i wont someone else will 🌱
 
-You matter to me so much that you cannot even imagine. If love is eternal, even God bends His rules. I’m not asking Him to bend anything but my temper. Your presence is the only source of happiness I have.
+let me tell you something you are soo soo important for me and my survival and you better know it and i am not letting anyone or anything happen to you till i am alive you get me.
 
-My heart stopped searching the moment it found you. You make me complete. Sometimes, things have to go very wrong before they can finally become right.
+You matter to me soo soo much you can not even imagine thats why i care about getting this right. 
+you know i've read it somewhere if the love is eternal even god bend his rules, not asking him to bend anything but my temper as i am growing old i need you more and more and only you.
 
-I am maturing by damage, not just by age.
+your presence in my life is the only source of happiness i have with me here. ☀️
 
-        // Check for persistent login
+you remeber something 3 years back, i was not looking for you when you met me, but now with you, it feels real feels like a part og me always wanted to have you my heart stopped searching for anythiong else the moment it found you i have tol you 100 times and will repeate it again you make me complete my love 💑
+
+what i wanted you to undestand that you have survived too many storms to be bothered by mear raindrops, daily belive it i have cried almost all the days we are not speaking i am killing my self inside just looking for you in everyone i see, i need to understand that what i am becoming is more important that what i have been and you are repetedly tell me about it 
+
+just sometimes things have to go very wrong before they can become right. 
+I am maturing by damage and not by age`;
+
         window.onload = function() {
             if (localStorage.getItem("isLoggedIn") === "true") {
                 unlock();
@@ -186,9 +183,8 @@ I am maturing by damage, not just by age.
             if (i < message.length) {
                 document.getElementById("typewriter").innerHTML += message.charAt(i);
                 i++;
-                setTimeout(typeWriterEffect, 45); 
+                setTimeout(typeWriterEffect, 35); // Slightly faster typing for the longer text
                 
-                // Auto-scroll logic
                 const container = document.getElementById("message-area");
                 container.scrollTop = container.scrollHeight;
             } else {
@@ -202,7 +198,7 @@ I am maturing by damage, not just by age.
                 particleCount: 200,
                 spread: 90,
                 origin: { y: 0.6 },
-                colors: ['#ff4b6e', '#ffccd5', '#ffffff', '#ff9a9e']
+                colors: ['#ff4b6e', '#ffccd5', '#ffffff', '#ff9a9e', '#ffd700'] 
             });
         }
 
