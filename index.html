@@ -187,7 +187,7 @@ Mi dispiace
 Sinto muito
 
 In any language, the best apology is changed behavior and i have been telling you i am a changed man now.
-I love you My baby and always will ❤️`.
+I love you My baby and always will ❤️`;
 
         window.onload = function() {
             if (localStorage.getItem("isLoggedIn") === "true") {
@@ -197,7 +197,6 @@ I love you My baby and always will ❤️`.
 
         function checkPassword() {
             const input = document.getElementById("passInput").value;
-            // This makes the password case-insensitive
             if (input.toLowerCase() === "mybaby") {
                 localStorage.setItem("isLoggedIn", "true");
                 unlock();
@@ -207,12 +206,10 @@ I love you My baby and always will ❤️`.
         }
 
         function unlock() {
-            // Start Music
             const music = document.getElementById("birthdayMusic");
             music.volume = 0;
-            music.play().catch(e => console.log("Audio play blocked by browser"));
+            music.play().catch(e => console.log("Audio play blocked"));
             
-            // Smooth Volume Fade-in
             let vol = 0;
             let fadeIn = setInterval(() => {
                 if (vol < 0.4) {
