@@ -24,26 +24,33 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.85); 
+            background: rgba(255, 255, 255, 0.9); 
             backdrop-filter: blur(8px); 
-            padding: 2.5rem;
+            padding: 1.5rem; /* Reduced for mobile */
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 600px;
-            width: 85%;
+            width: 90%; /* Wider on small screens */
             z-index: 10;
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
             border: 1px solid rgba(255, 255, 255, 0.4);
+            box-sizing: border-box; /* Crucial for padding/width math */
         }
 
-        h1 { color: #ff4b6e; font-family: 'Dancing Script', cursive; font-size: 2.8rem; margin-top: 0; }
+        h1 { 
+            color: #ff4b6e; 
+            font-family: 'Dancing Script', cursive; 
+            font-size: clamp(1.8rem, 8vw, 2.8rem); /* Responsive size */
+            margin-top: 0; 
+        }
         
         input {
             padding: 12px;
-            width: 80%;
+            width: 90%; /* Responsive width */
+            max-width: 300px;
             border: 2px solid #ffccd5;
             border-radius: 8px;
             margin-bottom: 1.5rem;
@@ -63,6 +70,7 @@
             font-weight: bold;
             transition: 0.3s;
             font-size: 16px;
+            min-height: 48px; /* Better for mobile touch */
             box-shadow: 0 4px 15px rgba(255, 75, 110, 0.3);
         }
 
@@ -70,15 +78,30 @@
 
         #message-area { display: none; text-align: left; }
 
-        #typewriter { font-size: 16px; line-height: 1.8; color: #333; white-space: pre-wrap; font-weight: 400; }
+        #typewriter { 
+            font-size: clamp(14px, 4vw, 16px); /* Scales down on small phones */
+            line-height: 1.6; 
+            color: #333; 
+            white-space: pre-wrap; 
+            font-weight: 400; 
+        }
 
-        .heart-static { color: #ff4b6e; font-size: 50px; animation: pulse 1.5s infinite; }
+        .heart-static { color: #ff4b6e; font-size: 40px; animation: pulse 1.5s infinite; }
 
         #surprise-btn {
             display: none;
             margin: 20px auto;
             background: linear-gradient(45deg, #ff4b6e, #ff9a9e);
             animation: fadeIn 2s;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                width: 95%;
+            }
+            h1 { font-size: 1.8rem; }
         }
 
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
@@ -96,7 +119,7 @@
 
         @keyframes fall { to { transform: translateY(110vh); } }
 
-        .container::-webkit-scrollbar { width: 6px; }
+        .container::-webkit-scrollbar { width: 4px; }
         .container::-webkit-scrollbar-thumb { background: #ffccd5; border-radius: 10px; }
     </style>
 </head>
@@ -105,7 +128,7 @@
     <div class="container" id="login-box">
         <div class="heart-static">❤</div>
         <h1>For My Baby</h1>
-        <p>Enter our secret word to begin...</p>
+        <p style="font-size: 14px;">Enter our secret word to begin...</p>
         <input type="password" id="passInput" placeholder="Password">
         <br>
         <button class="btn" onclick="checkPassword()">Unlock My Heart</button>
@@ -114,17 +137,17 @@
     <div class="container" id="message-area">
         <h1 style="text-align: center;">Happy Birthday, My Love 🎂</h1>
         <div id="typewriter"></div>
-        <p id="signature" style="text-align: right; font-family: 'Dancing Script'; font-size: 28px; color: #ff4b6e; display:none;">
+        <p id="signature" style="text-align: right; font-family: 'Dancing Script'; font-size: 24px; color: #ff4b6e; display:none;">
             Forever yours, Mukund ❤️
         </p>
         <button id="surprise-btn" class="btn" onclick="celebrate()">Click for a Birthday Surprise! 🎉</button>
     </div>
 
     <script>
-        // Your exact original message with a few added emojis
-        const message = `Happiest Birthday to the prettiest of em all and my reason to stay live. ✨
+        const message = `Happiest Birthday to the prettiest of em all and my reason to stay live. 
+        I am soo happy that we know each other this good that you have unlocked the secret  key✨
 
-Every moment with you feels like a beautiful dream come true i miss my Faily tail life with you. 
+Every moment with you feels like a beautiful dream come true i miss my Faily tail life with you honestly. 
 You are my greatest support, my strength and my whole world. 🌍
 
 I know i am not the kind of person you wanted me to be and i am apologising for it and always will in life and i am sorry i have been an asshole all this while but let me tell you something  
@@ -132,28 +155,38 @@ its not okay for me i die everytime i speak rudely with you it hurts me even mor
 
 i have been crying alot lately angry on myself why i spoke to you the way i did i know its hard for you as well to bare a person like me but i am extremlly vulnerable let me tell you this for you just a thought of you getting away from me kills me.
 
-idk how good lord was soo mercyful on me that he brought you in my life i know i am not a perfect guy for you but i know this i will and always will  love you more, more that anything i every thought of ❤️
+idk how good lord was soo mercyful on me that he brought you in my life i know i am not a perfect guy for you but i know this i will and always will  love you more, more that anyone and anything can think of ❤️
 
 I just want to feel you hold you and hug you soo soo much make your hair and love you all the time i miss being me for you its been almost 3 years without you my love i know things are not good at the moment and you are really different from anyone else i've met  its just not possible for me to give up on us i want us and without your trust its next to impossible consider this my aplogy and its about rebuilding a connection i just do not want to say i am sorry i want to prove it to you because your mean the world to me. 🌎
 
-I totally understand how that hurt you  and i am here today to own it i should have not done that or speak to you the way i did but you need to understand me as well i am not at all defending my self i took the blame then i am still taking the blame on me because its you abd if you i can take anything and everything for you just as i will do anythign and everything for you i am here not to argue with you but to be standing with you letting you know i care for you like no one else dose now will do 🤝
+I totally understand how that hurt you  and i am here today to own it i should have not done that or speak to you the way i did but you need to understand me as well i am not at all defending my self i took the blame then i am still taking the blame on me because its you and if its you  belive me i can take anything and everything for us just as i will do anythign and everything for you i am here not to argue with you but to be standing with you letting you know i care for you like no one else dose nor will do 🤝
 
-i want to undestand more it needs courage to speak up when you are hurt and i know its not easy to put out your heart like that 
+i want to undestand more i totally agree that it needs courage to speak up when you are hurt and i know its not easy to put out your heart like that. 
 i have reflected on this and have realised i need to do better when it comes to you i am not apologiesing to end this converstaion i am dointg it so that i become a better version of my self for you because like you said you dont deserve it and also if i wont someone else will 🌱
 
 let me tell you something you are soo soo important for me and my survival and you better know it and i am not letting anyone or anything happen to you till i am alive you get me.
 
 You matter to me soo soo much you can not even imagine thats why i care about getting this right. 
-you know i've read it somewhere if the love is eternal even god bend his rules, not asking him to bend anything but my temper as i am growing old i need you more and more and only you.
+you know i've read it somewhere if the love is eternal even god bend his rules, not asking him to bend anything but my temper as i am growing old i need you more and more and only you other people are temporary you are my main just realising how much empty my life has become these days no one to talk to no one to fight with no one to shout no one to care no one to handel mood swings no one just no one not even you who i thought will be my support system after all this time.
 
 your presence in my life is the only source of happiness i have with me here. ☀️
 
-you remeber something 3 years back, i was not looking for you when you met me, but now with you, it feels real feels like a part og me always wanted to have you my heart stopped searching for anythiong else the moment it found you i have tol you 100 times and will repeate it again you make me complete my love 💑
+you remeber something 3 years back, i was not looking for you when you met me, but now with you, it feels real feels like a part of me always wanted to have you my heart stopped searching for anything else the moment it found you i have told you 100 times and will repeate it again you make me complete my love 💑
 
-what i wanted you to undestand that you have survived too many storms to be bothered by mear raindrops, daily belive it i have cried almost all the days we are not speaking i am killing my self inside just looking for you in everyone i see, i need to understand that what i am becoming is more important that what i have been and you are repetedly tell me about it 
+what i wanted you to undestand that you have survived too many storms to be bothered by mear raindrops, daily belive it i have cried almost all the days we are not speaking i am killing my self inside just looking for you in everyone i see, i need to understand that what i am becoming is more important that what i have been and you are repetedly tell me about it. 
 
 just sometimes things have to go very wrong before they can become right. 
-I am maturing by damage and not by age`;
+I am maturing by damage and not by age understanding this and try to live for today.
+I do want you to  have a great birthday as usual i couldn't make it back this year as well  i am sorry a 100 times  
+Lo siento
+Je suis désolé 
+Entschuldigung
+Mi dispiace
+मुझे माफ़ कर दो
+Sinto muito
+In any language, the best apology is changed behavior and i have been telling you i am a changed man now.
+I love you My baby and always will ❤️
+ ` . // Keep the original text here
 
         window.onload = function() {
             if (localStorage.getItem("isLoggedIn") === "true") {
@@ -183,7 +216,7 @@ I am maturing by damage and not by age`;
             if (i < message.length) {
                 document.getElementById("typewriter").innerHTML += message.charAt(i);
                 i++;
-                setTimeout(typeWriterEffect, 35); // Slightly faster typing for the longer text
+                setTimeout(typeWriterEffect, 30);
                 
                 const container = document.getElementById("message-area");
                 container.scrollTop = container.scrollHeight;
@@ -195,8 +228,8 @@ I am maturing by damage and not by age`;
 
         function celebrate() {
             confetti({
-                particleCount: 200,
-                spread: 90,
+                particleCount: 150,
+                spread: 70,
                 origin: { y: 0.6 },
                 colors: ['#ff4b6e', '#ffccd5', '#ffffff', '#ff9a9e', '#ffd700'] 
             });
@@ -208,13 +241,13 @@ I am maturing by damage and not by age`;
                 heart.classList.add('falling-heart');
                 heart.innerHTML = '❤';
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                heart.style.fontSize = Math.random() * 15 + 10 + 'px';
                 const duration = Math.random() * 3 + 4;
                 heart.style.animationDuration = duration + 's';
                 heart.style.opacity = Math.random() * 0.6 + 0.4;
                 document.body.appendChild(heart);
                 setTimeout(() => { heart.remove(); }, duration * 1000);
-            }, 400);
+            }, 600); // Slightly slower for performance on mobile
         }
     </script>
 </body>
