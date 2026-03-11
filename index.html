@@ -95,6 +95,22 @@
             animation: fadeIn 2s;
         }
 
+        #muteBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: none;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         @media (max-width: 480px) {
             .container { padding: 1.2rem; width: 95%; }
             h1 { font-size: 1.9rem; }
@@ -121,9 +137,11 @@
 </head>
 <body>
 
-    <audio id="birthdayMusic" loop>
+    <audio id="birthdayMusic" loop preload="auto">
         <source src="https://www.chosic.com/wp-content/uploads/2021/08/Every-Kind-of-Light.mp3" type="audio/mpeg">
     </audio>
+
+    <button id="muteBtn" onclick="toggleMute()">🔊</button>
 
     <div class="container" id="login-box">
         <div class="heart-static">❤</div>
@@ -195,6 +213,18 @@ I love you My baby and always will ❤️`;
             }
         }
 
+        function toggleMute() {
+            const music = document.getElementById("birthdayMusic");
+            const btn = document.getElementById("muteBtn");
+            if (music.muted) {
+                music.muted = false;
+                btn.innerHTML = "🔊";
+            } else {
+                music.muted = true;
+                btn.innerHTML = "🔇";
+            }
+        }
+
         function checkPassword() {
             const input = document.getElementById("passInput").value;
             if (input.toLowerCase() === "mybaby") {
@@ -207,18 +237,10 @@ I love you My baby and always will ❤️`;
 
         function unlock() {
             const music = document.getElementById("birthdayMusic");
-            music.volume = 0;
-            music.play().catch(e => console.log("Audio play blocked"));
+            document.getElementById("muteBtn").style.display = "block";
             
-            let vol = 0;
-            let fadeIn = setInterval(() => {
-                if (vol < 0.4) {
-                    vol += 0.05;
-                    music.volume = vol;
-                } else {
-                    clearInterval(fadeIn);
-                }
-            }, 400);
+            music.volume = 0.6; 
+            music.play().catch(e => console.log("Sound error: ", e));
 
             document.getElementById("login-box").style.display = "none";
             document.getElementById("message-area").style.display = "block";
