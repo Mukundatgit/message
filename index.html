@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday My Baby</title>
+    <title>Happy Birthday My Baby❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -16,11 +16,9 @@
             background-position: center;
             background-color: #fff0f3; 
             margin: 0;
+            padding: 0;
             overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            display: block; /* Allows the page to grow naturally for mobile */
         }
 
         .container {
@@ -32,10 +30,9 @@
             text-align: center;
             max-width: 600px;
             width: 90%;
+            margin: 40px auto; /* Centers the box and adds space at top/bottom */
             z-index: 10;
             position: relative;
-            max-height: 85vh;
-            overflow-y: auto;
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-sizing: border-box;
         }
@@ -49,7 +46,7 @@
         
         input {
             padding: 12px;
-            width: 90%;
+            width: 80%;
             max-width: 300px;
             border: 2px solid #ffccd5;
             border-radius: 8px;
@@ -86,7 +83,7 @@
             font-weight: 400; 
         }
 
-        .heart-static { color: #ff4b6e; font-size: 40px; animation: pulse 1.5s infinite; }
+        .heart-static { color: #ff4b6e; font-size: 40px; animation: pulse 1.5s infinite; text-align: center; }
 
         #surprise-btn {
             display: none;
@@ -98,11 +95,13 @@
         #surprise-image {
             display: none;
             width: 100%;
-            max-width: 400px;
+            max-width: 100%; /* Important for mobile */
+            height: auto;
             margin: 20px auto;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(255, 75, 110, 0.3);
             animation: fadeIn 2s;
+            object-fit: contain;
         }
 
         #image-caption {
@@ -146,9 +145,6 @@
         }
 
         @keyframes fall { to { transform: translateY(110vh); } }
-
-        .container::-webkit-scrollbar { width: 4px; }
-        .container::-webkit-scrollbar-thumb { background: #ffccd5; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -162,10 +158,12 @@
     <div class="container" id="login-box">
         <div class="heart-static">❤</div>
         <h1>For My Baby</h1>
-        <p style="font-size: 14px; color: #666;">Enter our secret word to begin...</p>
-        <input type="password" id="passInput" placeholder="Password">
-        <br>
-        <button class="btn" onclick="checkPassword()">Unlock My Heart</button>
+        <p style="text-align: center; font-size: 14px; color: #666;">Enter our secret word to begin...</p>
+        <div style="text-align: center;">
+            <input type="password" id="passInput" placeholder="Password">
+            <br>
+            <button class="btn" onclick="checkPassword()">Unlock My Heart</button>
+        </div>
     </div>
 
     <div class="container" id="message-area">
@@ -183,36 +181,36 @@
     </div>
 
     <script>
-        const message = `Happiest Birthday to the prettiest of em all and my reason to stay live. 
-I am soo happy that we know each other this good, that you have unlocked the secret key✨
+        const message = `Happiest Birthday to the prettiest of em all and my reason to stay alive. 
+I am so happy that we know each other this good, that you have unlocked the secret key✨
 
-Every moment with you feels like a beautiful dream come true i miss my Faily tail life with you honestly. 
+Every moment with you feels like a beautiful dream come true i miss my Fairy tale life with you honestly. 
 You are my greatest support, my strength and my whole world. 🌍
 
 I know i am not the kind of person you wanted me to be and i am apologising for it and always will in life and i am sorry i have been an asshole all this while but let me tell you something  
-its not okay for me i die everytime i speak rudely with you it hurts me even more with the silence i have created for us, life is hard but life is not hard with you around me i am not in rush when i am with you because you're my calm. 🌊
+its not okay for me i die every time i speak rudely with you it hurts me even more with the silence i have created for us, life is hard but life is not hard with you around me i am not in rush when i am with you because you're my calm. 🌊
 
-i have been crying alot lately angry on myself why i spoke to you the way i did i know its hard for you as well to bare a person like me but i am extremlly vulnerable let me tell you this for you just a thought of you getting away from me kills me.
+i have been crying a lot lately angry on myself why i spoke to you the way i did i know its hard for you as well to bear a person like me but i am extremely vulnerable let me tell you this for you just a thought of you getting away from me kills me.
 
-idk how good lord was soo mercyful on me that he brought you in my life i know i am not a perfect guy for you but i know this i will and always will love you more, more that anyone and anything can think of ❤️
+idk how good lord was so merciful on me that he brought you in my life i know i am not a perfect guy for you but i know this i will and always will love you more, more than anyone and anything can think of ❤️
 
-I just want to feel you hold you and hug you soo soo much make your hair and love you all the time i miss being me for you its been almost 3 years without you my love i know things are not good at the moment and you are really different from anyone else i've met its just not possible for me to give up on us i want us and without your trust its next to impossible consider this my aplogy and its about rebuilding a connection i just do not want to say i am sorry i want to prove it to you because your mean the world to me. 🌎
+I just want to feel you hold you and hug you so so much make your hair and love you all the time i miss being me for you its been almost 3 years without you my love i know things are not good at the moment and you are really different from anyone else i've met its just not possible for me to give up on us i want us and without your trust its next to impossible consider this my apology and its about rebuilding a connection i just do not want to say i am sorry i want to prove it to you because you mean the world to me. 🌎
 
-I totally understand how that hurt you and i am here today to own it i should have not done that or speak to you the way i did but you need to understand me as well i am not at all defending my self i took the blame then i am still taking the blame on me because its you and if its you belive me i can take anything and everything for us just as i will do anythign and everything for you i am here not to argue with you but to be standing with you letting you know i care for you like no one else dose nor will do 🤝
+I totally understand how that hurt you and i am here today to own it i should have not done that or speak to you the way i did but you need to understand me as well i am not at all defending my self i took the blame then i am still taking the blame on me because its you and if its you believe me i can take anything and everything for us just as i will do anything and everything for you i am here not to argue with you but to be standing with you letting you know i care for you like no one else does nor will do 🤝
 
-i want to undestand more i totally agree that it needs courage to speak up when you are hurt and i know its not easy to put out your heart like that. 
-i have reflected on this and have realised i need to do better when it comes to you i am not apologiesing to end this converstaion i am dointg it so that i become a better version of my self for you because like you said you dont deserve it and also if i wont someone else will 🌱
+i want to understand more i totally agree that it needs courage to speak up when you are hurt and i know its not easy to put out your heart like that. 
+i have reflected on this and have realised i need to do better when it comes to you i am not apologising to end this conversation i am doing it so that i become a better version of my self for you because like you said you dont deserve it and also if i wont someone else will 🌱
 
-let me tell you something you are soo soo important for me and my survival and you better know it and i am not letting anyone or anything happen to you till i am alive you get me.
+let me tell you something you are so so important for me and my survival and you better know it and i am not letting anyone or anything happen to you till i am alive you get me.
 
-You matter to me soo soo much you can not even imagine thats why i care about getting this right. 
-you know i've read it somewhere if the love is eternal even god bend his rules, not asking him to bend anything but my temper as i am growing old i need you more and more and only you other people are temporary you are my main just realising how much empty my life has become these days no one to talk to no one to fight with no one to shout no one to care no one to handel mood swings no one just no one not even you who i thought will be my support system after all this time.
+You matter to me so so much you can not even imagine thats why i care about getting this right. 
+you know i've read it somewhere if the love is eternal even god bend his rules, not asking him to bend anything but my temper as i am growing old i need you more and more and only you other people are temporary you are my main just realising how much empty my life has become these days no one to talk to no one to fight with no one to shout no one to care no one to handle mood swings no one just no one not even you who i thought will be my support system after all this time.
 
 your presence in my life is the only source of happiness i have with me here. ☀️
 
-you remeber something 3 years back, i was not looking for you when you met me, but now with you, it feels real feels like a part of me always wanted to have you my heart stopped searching for anything else the moment it found you i have told you 100 times and will repeate it again you make me complete my love 💑
+you remember something 3 years back, i was not looking for you when you met me, but now with you, it feels real feels like a part of me always wanted to have you my heart stopped searching for anything else the moment it found you i have told you 100 times and will repeat it again you make me complete my love 💑
 
-what i wanted you to undestand that you have survived too many storms to be bothered by mear raindrops, daily belive it i have cried almost all the days we are not speaking i am killing my self inside just looking for you in everyone i see, i need to understand that what i am becoming is more important that what i have been and you are repetedly tell me about it. 
+what i wanted you to understand that you have survived too many storms to be bothered by mere raindrops, daily believe it i have cried almost all the days we are not speaking i am killing my self inside just looking for you in everyone i see, i need to understand that what i am becoming is more important than what i have been and you are repeatedly tell me about it. 
 
 just sometimes things have to go very wrong before they can become right. 
 I am maturing by damage and not by age understanding this and try to live for today.
@@ -226,7 +224,9 @@ Mi dispiace
 Sinto muito
 
 In any language, the best apology is changed behavior and i have been telling you i am a changed man now.
-I love you My baby and always will ❤️`;
+I love you My baby and always will ❤️`
+
+        let i = 0;
 
         window.onload = function() {
             if (localStorage.getItem("isLoggedIn") === "true") {
@@ -269,23 +269,22 @@ I love you My baby and always will ❤️`;
             typeWriterEffect();
         }
 
-        let i = 0;
         function typeWriterEffect() {
             if (i < message.length) {
                 document.getElementById("typewriter").innerHTML += message.charAt(i);
                 i++;
                 setTimeout(typeWriterEffect, 35);
                 
-                const container = document.getElementById("message-area");
-                container.scrollTop = container.scrollHeight;
+                // Forces the phone browser to scroll down as the text appears
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             } else {
                 document.getElementById("signature").style.display = "block";
                 document.getElementById("surprise-btn").style.display = "block";
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             }
         }
 
         function celebrate() {
-            // Confetti effect
             confetti({
                 particleCount: 150,
                 spread: 70,
@@ -293,17 +292,16 @@ I love you My baby and always will ❤️`;
                 colors: ['#ff4b6e', '#ffccd5', '#ffffff', '#ff9a9e', '#ffd700'] 
             });
 
-            // Show image and caption
             const img = document.getElementById("surprise-image");
             const caption = document.getElementById("image-caption");
             
             img.style.display = "block";
             caption.style.display = "block";
 
-            // Smooth scroll to see the surprise
+            // Focus on the image once it appears
             setTimeout(() => {
-                caption.scrollIntoView({ behavior: 'smooth' });
-            }, 150);
+                img.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 200);
         }
 
         function startHeartRain() {
