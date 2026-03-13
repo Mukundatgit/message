@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday My Love</title>
+    <title>Happy Birthday My Baby</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -95,6 +95,27 @@
             animation: fadeIn 2s;
         }
 
+        #surprise-image {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(255, 75, 110, 0.3);
+            animation: fadeIn 2s;
+        }
+
+        #image-caption {
+            display: none;
+            text-align: center;
+            font-family: 'Dancing Script';
+            font-size: 22px;
+            color: #ff4b6e;
+            margin-top: 15px;
+            line-height: 1.4;
+            animation: fadeIn 3s;
+        }
+
         #muteBtn {
             position: fixed;
             bottom: 20px;
@@ -109,11 +130,6 @@
             display: none;
             font-size: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        @media (max-width: 480px) {
-            .container { padding: 1.2rem; width: 95%; }
-            h1 { font-size: 1.9rem; }
         }
 
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
@@ -137,9 +153,9 @@
 </head>
 <body>
 
-   <audio id="birthdayMusic" loop preload="auto">
-    <source src="choolo.mp3" type="audio/mpeg">
-</audio>
+    <audio id="birthdayMusic" loop preload="auto">
+        <source src="choolo.mp3" type="audio/mpeg">
+    </audio>
 
     <button id="muteBtn" onclick="toggleMute()">🔊</button>
 
@@ -159,6 +175,11 @@
             Forever yours, Mukund ❤️
         </p>
         <button id="surprise-btn" class="btn" onclick="celebrate()">Click for a Birthday Surprise! 🎉</button>
+        
+        <img id="surprise-image" src="mum.png" alt="Our Special Moment">
+        <p id="image-caption">
+            "Three years of memories, and I’m still searching for you in every crowd. My heart stopped searching the moment it found you. Happy Birthday, my baby. 🌎"
+        </p>
     </div>
 
     <script>
@@ -264,12 +285,25 @@ I love you My baby and always will ❤️`;
         }
 
         function celebrate() {
+            // Confetti effect
             confetti({
                 particleCount: 150,
                 spread: 70,
                 origin: { y: 0.6 },
                 colors: ['#ff4b6e', '#ffccd5', '#ffffff', '#ff9a9e', '#ffd700'] 
             });
+
+            // Show image and caption
+            const img = document.getElementById("surprise-image");
+            const caption = document.getElementById("image-caption");
+            
+            img.style.display = "block";
+            caption.style.display = "block";
+
+            // Smooth scroll to see the surprise
+            setTimeout(() => {
+                caption.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
         }
 
         function startHeartRain() {
